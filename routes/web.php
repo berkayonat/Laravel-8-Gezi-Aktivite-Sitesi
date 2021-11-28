@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [HomeController::class, 'index']);
+
+//Admin
+Route::get('/admin', [AdminHomeController::class, 'index'])->name('adminhome');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
