@@ -5,7 +5,12 @@
                 <img src="{{asset('assets')}}/admin/assets/img/admin-avatar.png" width="45px" />
             </div>
             <div class="admin-info">
-                <div class="font-strong">James Brown</div><small>Administrator</small></div>
+                <div class="font-strong">
+                    @auth<a href="#" >{{Auth::user()->name}}</a>
+                </div>
+                    <small><a href="{{route('admin_logout')}}" >Logout</a> </small>
+                    @endauth
+            </div>
         </div>
         <ul class="side-menu metismenu">
             <li>
