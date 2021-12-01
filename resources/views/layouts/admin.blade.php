@@ -20,12 +20,13 @@
 </head>
 
 <body class="fixed-navbar">
-<div class="page-wrapper">
+
 
     @include('admin._header')
     @include('admin._sidebar')
     @yield('content')
     @include('admin._footer')
     @yield('footer')
+
 </body>
 </html>

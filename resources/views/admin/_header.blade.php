@@ -1,7 +1,8 @@
+<div class="page-wrapper">
 <!-- START HEADER-->
 <header class="header">
     <div class="page-brand">
-        <a class="link" href="index.html">
+        <a class="link" href="{{route('admin_home')}}">
                     <span class="brand">Admin
                         <span class="brand-tip">CAST</span>
                     </span>
