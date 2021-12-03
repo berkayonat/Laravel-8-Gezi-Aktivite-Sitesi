@@ -14,7 +14,7 @@
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Category List</div>
+                        <a href="{{route('admin_category_add')}}" type="button" class="btn btn-success">Add Category</a>
                     </div>
                     <div class="ibox-body">
                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0"
@@ -37,7 +37,7 @@
                                 <td>{{$rs->title}}</td>
                                 <td>{{$rs->status}}</td>
                                 <td>Edit</td>
-                                <td>Delete</td>
+                                <td><a href="{{route('admin_category_delete',['id'=>$rs->id])}}" onclick="return confirm('Are you sure?')">Delete</a></td>
                             </tr>
                             @endforeach
                         </table>

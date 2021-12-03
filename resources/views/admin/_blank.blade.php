@@ -6,16 +6,35 @@
 
 @section('content')
     <div class="content-wrapper">
-        <div class="page-content fade-in-up">
-    <div class="page-heading">
-        <h1 class="page-title">Blank Page</h1>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="index.html"><i class="la la-home font-20"></i></a>
-            </li>
-            <li class="breadcrumb-item">Blank Page</li>
-        </ol>
-    </div>
+       <section class="content-header">
+           <div class="container-fluid">
+               <div class="row mt-4">
+                   <div class="col-sm-6">
+                       <h3>Blank Page</h3>
+                   </div>
+                   <div class="col-sm-6">
+                       <ol class="breadcrumb float-sm-right">
+                           <li class="breadcrumb-item"><a href="#">Home</a> </li>
+                           <li class="breadcrumb-item active">Blank Page</li>
+                       </ol>
+                   </div>
+               </div>
+           </div>
+       </section>
+
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Title</h3>
+                </div>
+                <div class="card-body">
+                    Body Area
+                </div>
+                <div class="card-footer">
+                    Footer
+                </div>
+            </div>
+        </section>
 
     </div>
 
