@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Category List')
+@section('title', 'Content List')
 
 
 
@@ -8,13 +8,13 @@
     <div class="content-wrapper">
         <div class="page-content fade-in-up">
             <div class="page-heading">
-                <h1 class="page-title">Categories</h1>
+                <h1 class="page-title">Contents</h1>
 
             </div>
             <div class="page-content fade-in-up">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <a href="{{route('admin_category_add')}}" type="button" class="btn btn-success">Add Category</a>
+                        <a href="{{route('admin_content_add')}}" type="button" class="btn btn-success">Add Content</a>
                     </div>
                     <div class="ibox-body">
                         <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0"
@@ -22,8 +22,13 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Parent</th>
+                                <th>Category</th>
                                 <th>Title</th>
+                                <th>Type</th>
+                                <th>City</th>
+                                <th>Country</th>
+                                <th>Location</th>
+                                <th>Image</th>
                                 <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
@@ -33,11 +38,16 @@
                             @foreach($datalist as $rs)
                             <tr>
                                 <td>{{$rs->id}}</td>
-                                <td>{{$rs->parent_id}}</td>
+                                <td>{{$rs->category_id}}</td>
                                 <td>{{$rs->title}}</td>
+                                <td>{{$rs->type}}</td>
+                                <td>{{$rs->city}}</td>
+                                <td>{{$rs->country}}</td>
+                                <td>{{$rs->location}}</td>
+                                <td>{{$rs->image}}</td>
                                 <td>{{$rs->status}}</td>
-                                <td><a href="{{route('admin_category_edit',['id'=>$rs->id])}}"><i class="ti-pencil-alt"></i></a> </td>
-                                <td><a href="{{route('admin_category_delete',['id'=>$rs->id])}}" onclick="return confirm('Are you sure?')"><i class="ti-trash"></i> </a></td>
+                                <td><a href="{{route('admin_content_edit',['id'=>$rs->id])}}"><i class="ti-pencil-alt"></i></a> </td>
+                                <td><a href="{{route('admin_content_delete',['id'=>$rs->id])}}" onclick="return confirm('Are you sure?')"><i class="ti-trash"></i></a></td>
                             </tr>
                             @endforeach
                         </table>

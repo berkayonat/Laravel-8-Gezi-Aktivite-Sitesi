@@ -83,6 +83,7 @@ class CategoryController extends Controller
     {
         $data = Category::find($id);
         $datalist = DB::table('categories')->get()->where('parent_id',0);
+
         return view('admin.category_edit', ['data' => $data,'datalist' => $datalist]);
     }
 

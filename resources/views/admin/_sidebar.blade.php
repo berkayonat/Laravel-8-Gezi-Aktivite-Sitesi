@@ -23,6 +23,11 @@
                     <span class="nav-label">Category</span>
                 </a>
             </li>
+            <li>
+                <a class="active" href="{{route('admin_content')}}"><i class="sidebar-item-icon fa fa-th-large"></i>
+                    <span class="nav-label">Content</span>
+                </a>
+            </li>
             <li class="heading">FEATURES</li>
             <li>
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
