@@ -29,6 +29,7 @@
                                 <th>Country</th>
                                 <th>Location</th>
                                 <th>Image</th>
+                                <th>Image Gallery</th>
                                 <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
@@ -49,11 +50,13 @@
                                         <img src="{{ Storage::url($rs->image)}}" height="30" alt="">
                                     @endif
                                 </td>
+                                <td><a href="{{route('admin_image_add',['content_id'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=1100 height=700')"><i class="ti-gallery"></i></a></td>
                                 <td>{{$rs->status}}</td>
                                 <td><a href="{{route('admin_content_edit',['id'=>$rs->id])}}"><i class="ti-pencil-alt"></i></a> </td>
                                 <td><a href="{{route('admin_content_delete',['id'=>$rs->id])}}" onclick="return confirm('Are you sure?')"><i class="ti-trash"></i></a></td>
                             </tr>
                             @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
