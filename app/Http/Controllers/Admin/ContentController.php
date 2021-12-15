@@ -8,6 +8,7 @@ use App\Models\Content;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ContentController extends Controller
 {
@@ -56,6 +57,7 @@ class ContentController extends Controller
         $data->country = $request->input('country');
         $data->location = $request->input('location');
         $data->detail = $request->input('detail');
+        $data->image = Storage::putFile('images', $request->file('image'));
         $data->save();
         return redirect()->route('admin_content');
 
@@ -108,6 +110,7 @@ class ContentController extends Controller
         $data->country = $request->input('country');
         $data->location = $request->input('location');
         $data->detail = $request->input('detail');
+        $data->image = Storage::putFile('images', $request->file('image'));
 
         $data->save();
         return redirect()->route('admin_content');

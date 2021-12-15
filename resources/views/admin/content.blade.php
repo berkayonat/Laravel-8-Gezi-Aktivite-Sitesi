@@ -44,7 +44,11 @@
                                 <td>{{$rs->city}}</td>
                                 <td>{{$rs->country}}</td>
                                 <td>{{$rs->location}}</td>
-                                <td>{{$rs->image}}</td>
+                                <td>
+                                    @if($rs->image)
+                                        <img src="{{ Storage::url($rs->image)}}" height="30" alt="">
+                                    @endif
+                                </td>
                                 <td>{{$rs->status}}</td>
                                 <td><a href="{{route('admin_content_edit',['id'=>$rs->id])}}"><i class="ti-pencil-alt"></i></a> </td>
                                 <td><a href="{{route('admin_content_delete',['id'=>$rs->id])}}" onclick="return confirm('Are you sure?')"><i class="ti-trash"></i></a></td>

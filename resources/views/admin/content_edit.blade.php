@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="ibox-body">
-                        <form action="{{route('admin_content_update', ['id'=>$data->id])}}" method="post">
+                        <form action="{{route('admin_content_update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Parent</label>
@@ -88,11 +88,16 @@
                                 <label>Detail</label>
                                 <textarea id="inp_editor1" name="detail">{{$data->detail}}</textarea>
                                 <script>
-                                    <script>
-                                        var editor1 = new RichTextEditor("#inp_editor1");
-                                        //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
+                                    var editor1 = new RichTextEditor("#inp_editor1");
+                                    //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
                                 </script>
-                                </script>
+                            </div>
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input class="form-control" type="file" value="{{$data->image}}" name="image">
+                                @if($data->image)
+                                    <img src="{{ Storage::url($data->image)}}" height="100" alt="">
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label>Slug</label>
@@ -107,7 +112,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Edit Category</button>
+                                <button class="btn btn-primary" type="submit">Update Content</button>
                             </div>
                         </form>
                     </div>

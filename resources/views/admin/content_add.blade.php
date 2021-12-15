@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/richtexteditor/rte_theme_default.css" />
     <script type="text/javascript" src="{{asset('assets')}}/richtexteditor/rte.js"></script>
     <script type="text/javascript" src="{{asset('assets')}}/richtexteditor/plugins/all_plugins.js"></script>
-    @endsection
+@endsection
 
 @section('content')
     <div class="content-wrapper">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="ibox-body">
-                        <form action="{{route('admin_content_store')}}" method="post">
+                        <form action="{{route('admin_content_store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Parent</label>
@@ -92,6 +92,10 @@
                                 </script>
                             </div>
                             <div class="form-group">
+                                <label>Image</label>
+                                <input class="form-control" type="file" name="image">
+                            </div>
+                            <div class="form-group">
                                 <label>Slug</label>
                                 <input class="form-control" type="text" name="slug">
                             </div>
@@ -103,7 +107,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Add Category</button>
+                                <button class="btn btn-primary" type="submit">Add Content</button>
                             </div>
                         </form>
                     </div>
