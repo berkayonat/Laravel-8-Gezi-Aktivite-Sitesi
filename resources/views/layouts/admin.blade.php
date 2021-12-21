@@ -12,6 +12,8 @@
     <link href="{{asset('assets')}}/admin/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
     <link href="{{asset('assets')}}/admin/assets/vendors/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/assets/vendors/summernote/dist/summernote.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/admin/assets/vendors/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" />
     <!-- THEME STYLES-->
     <link href="{{asset('assets')}}/admin/assets/css/main.min.css" rel="stylesheet" />
     <!-- PAGE LEVEL STYLES-->

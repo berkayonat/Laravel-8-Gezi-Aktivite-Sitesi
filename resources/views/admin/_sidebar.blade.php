@@ -14,11 +14,6 @@
         </div>
         <ul class="side-menu metismenu">
             <li>
-                <a class="active" href="{{route('admin_home')}}"><i class="sidebar-item-icon fa fa-th-large"></i>
-                    <span class="nav-label">Dashboard</span>
-                </a>
-            </li>
-            <li>
                 <a class="active" href="{{route('admin_category')}}"><i class="sidebar-item-icon fa fa-th-large"></i>
                     <span class="nav-label">Category</span>
                 </a>
@@ -26,6 +21,11 @@
             <li>
                 <a class="active" href="{{route('admin_content')}}"><i class="sidebar-item-icon fa fa-th-large"></i>
                     <span class="nav-label">Content</span>
+                </a>
+            </li>
+            <li>
+                <a class="active" href="{{route('admin_setting')}}"><i class="sidebar-item-icon fa ti-settings"></i>
+                    <span class="nav-label">Settings</span>
                 </a>
             </li>
             <li class="heading">FEATURES</li>
