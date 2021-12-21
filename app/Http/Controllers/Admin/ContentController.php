@@ -57,7 +57,9 @@ class ContentController extends Controller
         $data->country = $request->input('country');
         $data->location = $request->input('location');
         $data->detail = $request->input('detail');
-        $data->image = Storage::putFile('images', $request->file('image'));
+        if ($request->file('image') != null) {
+            $data->image = Storage::putFile('images', $request->file('image'));
+        }
         $data->save();
         return redirect()->route('admin_content');
 

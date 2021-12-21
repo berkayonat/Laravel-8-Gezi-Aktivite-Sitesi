@@ -1,10 +1,10 @@
 @extends('layouts.home')
 
 @section('title', 'Travelty')
-@section('description')
-    The best travel website.
-@endsection
+
 @section('keywords','Travel,Activity,Trip')
+
+@section('description', 'The best travel website.')
 
 
 @section('content')
