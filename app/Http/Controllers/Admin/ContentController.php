@@ -20,7 +20,7 @@ class ContentController extends Controller
     public function index()
     {
         $datalist = Content::all();
-        return view('admin.content', ['datalist'=>$datalist]);
+        return view('admin.content', ['datalist' => $datalist]);
     }
 
     /**
@@ -37,7 +37,7 @@ class ContentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -66,7 +66,7 @@ class ContentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Content  $content
+     * @param \App\Models\Content $content
      * @return \Illuminate\Http\Response
      */
     public function show(Content $content)
@@ -77,25 +77,25 @@ class ContentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Content  $content
+     * @param \App\Models\Content $content
      * @return \Illuminate\Http\Response
      */
-    public function edit(Content $content,$id)
+    public function edit(Content $content, $id)
     {
         $data = Content::find($id);
         $datalist = Category::all();
 
-        return view('admin.content_edit', ['data' => $data,'datalist' => $datalist]);
+        return view('admin.content_edit', ['data' => $data, 'datalist' => $datalist]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Content  $content
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Content $content
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Content $content,$id)
+    public function update(Request $request, Content $content, $id)
     {
         $data = Content::find($id);
         $data->title = $request->input('title');
@@ -110,8 +110,9 @@ class ContentController extends Controller
         $data->country = $request->input('country');
         $data->location = $request->input('location');
         $data->detail = $request->input('detail');
-        $data->image = Storage::putFile('images', $request->file('image'));
-
+        if ($request->file('image') != null) {
+            $data->image = Storage::putFile('images', $request->file('image'));
+        }
         $data->save();
         return redirect()->route('admin_content');
     }
@@ -119,10 +120,10 @@ class ContentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Content  $content
+     * @param \App\Models\Content $content
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Content $content,$id)
+    public function destroy(Content $content, $id)
     {
         $data = Content::find($id);
         $data->delete();
