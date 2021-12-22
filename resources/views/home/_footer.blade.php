@@ -1,3 +1,6 @@
+@php
+    $setting = \App\Http\Controllers\HomeController::getSetting()
+@endphp
 <!--  footer -->
 <footer>
     <div class="footer">
@@ -31,20 +34,28 @@
                 </div>
                 <div class="col-md-4 ">
                     <ul class="conta">
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i>Locations
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{$setting->address}}
                         </li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i>+01 1234567890</li>
-                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="Javascript:void(0)"> demo@gmail.com</a></li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i>{{$setting->phone}}</li>
+                        <li><i class="fa fa-envelope" aria-hidden="true"></i>{{$setting->email}}</li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <div class="follow text_align_left">
                         <h3>Follow Us</h3>
                         <ul class="social_icon ">
-                            <li><a href="Javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="Javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="Javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            @if($setting->facebook != null)
+                                <li><a href="{{$setting->facebook}}"><i class="fa fa-facebook"
+                                                                        aria-hidden="true"></i></a></li>@endif
+                            @if($setting->twitter != null)
+                                <li><a href="{{$setting->twitter}}"><i class="fa fa-twitter"
+                                                                        aria-hidden="true"></i></a></li>@endif
+                            @if($setting->youtube != null)
+                                <li><a href="{{$setting->youtube}}"><i class="fa fa-youtube"
+                                                                        aria-hidden="true"></i></a></li>@endif
+                            @if($setting->instagram != null)
+                                <li><a href="{{$setting->instagram}}"><i class="fa fa-instagram"
+                                                                        aria-hidden="true"></i></a></li>@endif
                         </ul>
                     </div>
                 </div>
@@ -63,7 +74,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>© 2020 All Rights Reserved. Design by <a href="https://html.design/"> Free html Templates</a></p>
+                        <p>© 2021 All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
