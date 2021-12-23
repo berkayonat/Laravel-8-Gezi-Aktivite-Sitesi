@@ -1,8 +1,3 @@
-<!-- loader  -->
-<div class="loader_bg">
-    <div class="loader"><img src="{{asset('assets')}}/images/loading.gif" alt="#"/></div>
-</div>
-<!-- end loader -->
 <!-- header -->
 <div class="header">
     <div class="top_header">
@@ -21,15 +16,14 @@
                     </div>
                     <ul class="top_infomation">
                         <li><img src="{{asset('assets')}}/images/ti_call.png" alt="#"/>Call : +1234567890</li>
-                        <li><img src="{{asset('assets')}}/images/ti_mail.png" alt="#"/><a href="Javascript:void(0)">
-                                demo@gmail.com</a></li>
+                        <li><img src="{{asset('assets')}}/images/ti_mail.png" alt="#"/><a href="Javascript:void(0)">demo@geziaktivite.com</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="header_midil">
+<div class="header_midil bg-dark">
     <div class="container">
         <div class="row d_flex">
             <div class=" col-md-2 col-sm-3 logo_section">
@@ -49,7 +43,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarsExample04">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{route('home')}}">Home</a>
                             </li>
                             <li class="nav-item">
@@ -71,7 +65,7 @@
             <div class="col-md-2  d_none">
                 <ul class="email text_align_right">
                     @auth
-                    <li><a href="/user/profile"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        <li><a href="{{route('myprofile')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         <div>{{Auth::user()->name}}</div>
                     @endauth
                     @guest
@@ -83,6 +77,6 @@
         </div>
     </div>
 </div>
-</div>
+
 <!-- end header inner -->
 <!-- end header -->

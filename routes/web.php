@@ -59,6 +59,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('setting/update', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin_setting_update');
 });
 
+Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function () {
+
+    Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('myprofile');
+
+
+});
+
+
+
 Route::get('/admin/login', [HomeController::class, 'login'])->name('admin_login');
 Route::post('/admin/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
