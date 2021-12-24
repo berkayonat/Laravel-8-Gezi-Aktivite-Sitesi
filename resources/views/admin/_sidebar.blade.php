@@ -8,7 +8,7 @@
                 <div class="font-strong">
                     @auth<a href="#">{{Auth::user()->name}}</a>
                 </div>
-                <small><a href="{{route('admin_logout')}}">Logout</a> </small>
+                <small><a href="{{route('logout')}}">Logout</a> </small>
                 @endauth
             </div>
         </div>

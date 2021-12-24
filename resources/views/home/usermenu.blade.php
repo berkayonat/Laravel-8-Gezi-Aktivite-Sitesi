@@ -1,9 +1,9 @@
-<div>
-    <h3>User Panel</h3>
+<div style="margin-top: 50px;">
+    <h5>USER PANEL</h5><br>
     <ul>
-        <li><a href="{{route('myprofile')}}">My Profile</a></li>
-        <li><a href="#">Comments</a></li>
-        <li><a href="#">Messages</a></li>
-        <li><a href="{{route('logout')}}">Logout</a></li>
+        <li style="margin-bottom: 10px"><a href="{{route('myprofile')}}">MY PROFILE</a></li>
+        <li style="margin-bottom: 10px"><a href="#">MY COMMENTS</a></li>
+        <li style="margin-bottom: 10px"><a href="#">MY MESSAGES</a></li>
+        <li style="margin-bottom: 10px"><a href="{{route('logout')}}">LOGOUT</a></li>
     </ul>
 </div>

@@ -196,13 +196,13 @@
             <script type="text/javascript">
                 $(function () {
                     $('#summernote').summernote({
-                        height: 100
+
                     });
                     $('#summernote2').summernote({
-                        height: 100
+
                     });
                     $('#summernote3').summernote({
-                        height: 100
+
                     });
                 });
             </script>

@@ -15,8 +15,8 @@
                         <span> <a href="/register">Sign Up</a> </span>
                     </div>
                     <ul class="top_infomation">
-                        <li><img src="{{asset('assets')}}/images/ti_call.png" alt="#"/>Call : +1234567890</li>
-                        <li><img src="{{asset('assets')}}/images/ti_mail.png" alt="#"/><a href="Javascript:void(0)">demo@geziaktivite.com</a></li>
+                        <li>Call : +1234567890</li>
+                        <li><a href="#">demo@geziaktivite.com</a></li>
                     </ul>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                                 <a class="nav-link" href="{{route('aboutus')}}">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
+                                <a class="nav-link" href="{{route('contact')}}">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -65,11 +65,11 @@
             <div class="col-md-2  d_none">
                 <ul class="email text_align_right">
                     @auth
-                        <li><a href="{{route('myprofile')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                        <div>{{Auth::user()->name}}</div>
+                        <li><a href="{{route('myprofile')}}"><i class="fa fa-user" aria-hidden="true"></i><div style="color: white">{{Auth::user()->name}}</div></a></li>
+
                     @endauth
                     @guest
-                        <li><a href="/login"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        <li><a href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                     @endguest
                     <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i> </a></li>
                 </ul>

@@ -19,6 +19,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('homepage');
 Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/references', [HomeController::class, 'references'])->name('references');
 
 
 
@@ -63,6 +65,10 @@ Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(fu
 
     Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('myprofile');
 
+});
+Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
+
+    Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->name('userprofile');
 
 });
 
