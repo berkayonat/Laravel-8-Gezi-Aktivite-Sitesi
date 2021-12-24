@@ -26,6 +26,7 @@
                                 <th>Subject</th>
                                 <th>Message</th>
                                 <th>Admin Note</th>
+                                <th>Ip Address</th>
                                 <th>Status</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
@@ -41,6 +42,7 @@
                                 <td>{{$rs->subject}}</td>
                                 <td>{{$rs->message}}</td>
                                 <td>{{$rs->note}}</td>
+                                <td>{{$rs->ip}}</td>
                                 <td>{{$rs->status}}</td>
                                 <td><a href="{{route('admin_message_edit',['id'=>$rs->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=600 height=600')"><i class="ti-pencil-alt"></i></a> </td>
                                 <td><a href="{{route('admin_message_delete',['id'=>$rs->id])}}" onclick="return confirm('Are you sure?')"><i class="ti-trash"></i></a></td>
