@@ -28,6 +28,11 @@
                     <span class="nav-label">Settings</span>
                 </a>
             </li>
+            <li>
+                <a class="active" href="{{route('admin_message')}}"><i class="sidebar-item-icon fa ti-comment"></i>
+                    <span class="nav-label">Contact Messages</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
