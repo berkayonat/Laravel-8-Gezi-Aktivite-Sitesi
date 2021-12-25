@@ -23,6 +23,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
+Route::get('/content/{id}/{slug}', [HomeController::class, 'content'])->name('content');
 
 
 

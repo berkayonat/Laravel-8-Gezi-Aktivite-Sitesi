@@ -1,3 +1,5 @@
+@php
+@endphp
 <!-- slider -->
 <div class="full_bg">
     <div class="slider_main">
@@ -12,52 +14,24 @@
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
+                            @foreach($slider as $rs)
                             <!-- first slide -->
-                            <div class="carousel-item active">
+                            <div class="carousel-item {{$loop->iteration == 1 ? 'active' : '  ' }}">
                                 <div class="carousel-caption relative">
                                     <div class="row">
                                         <div  class="col-md-10 offset-md-1">
                                             <div class="board">
                                                 <h1>Now start <br>Your traveling </h1>
-                                                <p>when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed towhen looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to</p>
-                                                <a class="read_more" href="Javascript:void(0)">Read More</a>
-                                                <a class="read_more" href="Javascript:void(0)">Contact us</a>
+                                                <p>{{$rs->title}}-{{$rs->location}}</p>
+                                                <a class="read_more" href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- second slide -->
-                            <div class="carousel-item">
-                                <div class="carousel-caption relative">
-                                    <div class="row">
-                                        <div  class="col-md-10 offset-md-1">
-                                            <div class="board">
-                                                <h1>Now start <br>Your traveling </h1>
-                                                <p>when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed towhen looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to</p>
-                                                <a class="read_more" href="Javascript:void(0)">Read More</a>
-                                                <a class="read_more" href="Javascript:void(0)">Contact us</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- third slide-->
-                            <div class="carousel-item">
-                                <div class="carousel-caption relative">
-                                    <div class="row">
-                                        <div  class="col-md-10 offset-md-1">
-                                            <div class="board">
-                                                <h1>Now start <br>Your traveling </h1>
-                                                <p>when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed towhen looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to</p>
-                                                <a class="read_more" href="Javascript:void(0)">Read More</a>
-                                                <a class="read_more" href="Javascript:void(0)">Contact us</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                @endforeach
                         </div>
+
                         <!-- controls -->
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <i class="fa fa-angle-left" aria-hidden="true"></i>

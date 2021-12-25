@@ -2,11 +2,6 @@
 
 @section('title', 'Edit Content')
 
-@section('javascript')
-    <link rel="stylesheet" href="{{asset('assets')}}/richtexteditor/rte_theme_default.css" />
-    <script type="text/javascript" src="{{asset('assets')}}/richtexteditor/rte.js"></script>
-    <script type="text/javascript" src="{{asset('assets')}}/richtexteditor/plugins/all_plugins.js"></script>
-@endsection
 
 @section('content')
     <div class="content-wrapper">
@@ -88,11 +83,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Detail</label>
-                                <textarea id="inp_editor1" name="detail">{{$data->detail}}</textarea>
-                                <script>
-                                    var editor1 = new RichTextEditor("#inp_editor1");
-                                    //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
-                                </script>
+                                <textarea id="summernote" name="detail">{{$data->detail}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Image</label>
@@ -126,7 +117,13 @@
 
         </section>
 
-
-
-
+@endsection
+        @section('footer')
+            <script type="text/javascript">
+                $(function() {
+                    $('#summernote').summernote({
+                        height: 100
+                    });
+                });
+            </script>
 @endsection

@@ -289,6 +289,6 @@
     <!-- end packages -->
 
     @include('home._about')
-    @include('home._customers')
+
 
 @endsection

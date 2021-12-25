@@ -196,13 +196,10 @@
             <script type="text/javascript">
                 $(function () {
                     $('#summernote').summernote({
-
                     });
                     $('#summernote2').summernote({
-
                     });
                     $('#summernote3').summernote({
-
                     });
                 });
             </script>
