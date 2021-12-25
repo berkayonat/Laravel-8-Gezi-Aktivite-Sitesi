@@ -15,8 +15,8 @@
                         <span> <a href="/register">Sign Up</a> </span>
                     </div>
                     <ul class="top_infomation">
-                        <li>Call : +1234567890</li>
-                        <li><a href="#">demo@geziaktivite.com</a></li>
+                        <li>Call : {{$setting->phone}}</li>
+                        <li><a href="#">{{$setting->email}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9 col-md-8">
+            <div class="col-sm-9 col-md-7">
                 <nav class="navigation navbar navbar-expand-md navbar-dark ">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
                             aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,14 +62,24 @@
                     </div>
                 </nav>
             </div>
-            <div class="col-md-2  d_none">
+            <div class="col-md-3  d_none">
                 <ul class="email text_align_right">
                     @auth
-                        <li><a href="{{route('myprofile')}}"><i class="fa fa-user" aria-hidden="true"></i><div style="color: white">{{Auth::user()->name}}</div></a></li>
+                        <li class="dropdown dropdown-user">
+                            <a class="nav-link dropdown-toggle link" data-toggle="dropdown" href="{{route('myprofile')}}">
+                                <p style="color: white">{{Auth::user()->name}}</p>
+                            </a>
 
+                            <ul class="dropdown-menu dropdown-menu-header">
+                                <a class="dropdown-item" href="{{route('myprofile')}}">My Profile</a>
+                                <a class="dropdown-item" href="profile.html">My Comments</a>
+                                <li class="dropdown-divider"></li>
+                                <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                            </ul>
+                        </li>
                     @endauth
                     @guest
-                        <li><a href="{{route('login')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        <li><a href="{{route('login')}}"></i><p style="color: white;">LOGIN</p></a></li>
                     @endguest
                     <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i> </a></li>
                 </ul>
