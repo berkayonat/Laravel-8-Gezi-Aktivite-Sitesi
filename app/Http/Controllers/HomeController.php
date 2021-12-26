@@ -38,7 +38,16 @@ class HomeController extends Controller
         $data = Content::find($id);
         print_r($data);
         exit();
+    }
 
+    public function categorycontents($id,$slug)
+    {
+        $datalist = Content::where('category_id',$id)->get();
+        $data = Category::find($id);
+        $setting = Setting::first();
+        #print_r($data);
+        #exit();
+        return view('home.category_contents', ['datalist' => $datalist, 'data'=>$data, 'setting'=>$setting]);
     }
 
     public function aboutus()

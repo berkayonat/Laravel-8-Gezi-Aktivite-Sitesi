@@ -1,3 +1,6 @@
+@php
+    $parentCategories = \App\Http\Controllers\HomeController::categoryList()
+@endphp
 <!-- header -->
 <div class="header">
     <div class="top_header">
@@ -47,7 +50,17 @@
                                 <a class="nav-link" href="{{route('home')}}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('home')}}">Activities</a>
+                                <ul>
+                                    <li class="dropdown dropdown-user">
+                                        <a class="nav-link dropdown-toggle link" data-toggle="dropdown"
+                                           href="#">Activities</a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            @foreach($parentCategories as $rs)
+                                            <a class="dropdown-item" href="{{route('categorycontents', ['id'=>$rs->id, 'slug'=>$rs->slug])}}">{{$rs->title}}</a>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('home')}}">Blog</a>
@@ -66,13 +79,14 @@
                 <ul class="email text_align_right">
                     @auth
                         <li class="dropdown dropdown-user">
-                            <a class="nav-link dropdown-toggle link" data-toggle="dropdown" href="{{route('myprofile')}}">
+                            <a class="nav-link dropdown-toggle link" data-toggle="dropdown"
+                               href="{{route('myprofile')}}">
                                 <p style="color: white">{{Auth::user()->name}}</p>
                             </a>
 
-                            <ul class="dropdown-menu dropdown-menu-header">
+                            <ul class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{route('myprofile')}}">My Profile</a>
-                                <a class="dropdown-item" href="profile.html">My Comments</a>
+                                <a class="dropdown-item" href="#">My Comments</a>
                                 <li class="dropdown-divider"></li>
                                 <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                             </ul>
