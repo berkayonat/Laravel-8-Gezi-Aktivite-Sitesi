@@ -24,10 +24,12 @@ class HomeController extends Controller
     public function index()
     {
         $setting = Setting::first();
-        $slider = Content::select('id','title','location','slug')->limit(3)->get();
+        $slider = Content::select('id','title','location','slug')->limit(3)->inRandomOrder()->get();
+        $home = Content::select('id','title','city','image','slug')->limit(6)->latest()->get();
         $data = [
             'setting' => $setting,
-            'slider' => $slider
+            'slider' => $slider,
+            'home' => $home
         ];
 
         return view('home.index',$data);
@@ -42,7 +44,7 @@ class HomeController extends Controller
 
     public function categorycontents($id,$slug)
     {
-        $datalist = Content::where('category_id',$id)->get();
+        $datalist = Content::where('category_id',$id)->latest()->get();
         $data = Category::find($id);
         $setting = Setting::first();
         #print_r($data);
