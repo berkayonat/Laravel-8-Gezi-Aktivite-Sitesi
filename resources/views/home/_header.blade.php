@@ -26,7 +26,7 @@
         </div>
     </div>
 </div>
-<div class="header_midil" style="background-color: #1a202c">
+<div class="header_midil" style="background-color: #1d2124">
     <div class="container">
         <div class="row d_flex">
             <div class=" col-md-2 col-sm-3 logo_section">

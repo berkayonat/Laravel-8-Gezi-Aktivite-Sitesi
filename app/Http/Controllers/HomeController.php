@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Content;
+use App\Models\Image;
 use App\Models\Message;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -24,8 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         $setting = Setting::first();
-        $slider = Content::select('id','title','location','slug')->limit(3)->inRandomOrder()->get();
-        $home = Content::select('id','title','city','image','slug')->limit(6)->latest()->get();
+        $slider = Content::select('id','title','country','city','location','slug')->limit(3)->inRandomOrder()->get();
+        $home = Content::select('id','title','country','city','location','image','slug')->limit(6)->latest()->get();
         $data = [
             'setting' => $setting,
             'slider' => $slider,
@@ -38,8 +39,11 @@ class HomeController extends Controller
     public function content($id,$slug)
     {
         $data = Content::find($id);
-        print_r($data);
-        exit();
+        $datalist = Image::where('content_id',$id)->get();
+        $setting = Setting::first();
+        #print_r($data);
+        #exit();
+        return view('home.content_detail',['data'=>$data, 'setting'=>$setting, 'datalist' => $datalist]);
     }
 
     public function categorycontents($id,$slug)

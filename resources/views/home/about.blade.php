@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="section">
+    <div class="packages">
         <div class="container">
             <div class="row">
                 {!!$setting->aboutus!!}

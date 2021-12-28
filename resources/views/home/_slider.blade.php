@@ -21,8 +21,8 @@
                                     <div class="row">
                                         <div  class="col-md-10 offset-md-1">
                                             <div class="board">
-                                                <h1>Now start <br>Your traveling </h1>
-                                                <p>{{$rs->title}}-{{$rs->location}}</p>
+                                                <h1>{{$rs->title}} <br></h1>
+                                                <p>{{$rs->country}} / {{$rs->city}} / {{$rs->location}}</p>
                                                 <a class="read_more" href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>
                                             </div>
                                         </div>
