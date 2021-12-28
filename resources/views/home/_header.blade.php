@@ -29,7 +29,7 @@
 <div class="header_midil" style="background-color: #1d2124">
     <div class="container">
         <div class="row d_flex">
-            <div class=" col-md-2 col-sm-3 logo_section">
+            <div class=" col-md-1 col-sm-3 logo_section">
                 <div class="full">
                     <div class="center-desk">
                         <div class="logo">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9 col-md-7">
+            <div class="col-sm-9 col-md-11">
                 <nav class="navigation navbar navbar-expand-md navbar-dark">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
                             aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@
                                 <ul>
                                     <li class="dropdown dropdown-user">
                                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown"
-                                           href="#">Activities</a>
+                                           href="#">Categories</a>
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             @foreach($parentCategories as $rs)
                                             <a class="dropdown-item" href="{{route('categorycontents', ['id'=>$rs->id, 'slug'=>$rs->slug])}}">{{$rs->title}}</a>
@@ -71,32 +71,46 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('contact')}}">Contact</a>
                             </li>
+                            <li class="nav-item">
+                                <ul>
+                                    @auth
+                                        <li class="dropdown dropdown-user">
+                                            <a class="nav-link dropdown-toggle link" data-toggle="dropdown"
+                                               href="{{route('myprofile')}}">
+                                                <p style="color: white">{{Auth::user()->name}}</p>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="{{route('myprofile')}}">My Profile</a>
+                                                <a class="dropdown-item" href="#">My Comments</a>
+                                                <li class="dropdown-divider"></li>
+                                                <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                                            </ul>
+                                        </li>
+                                    @endauth
+                                    @guest
+                                        <li><a class="nav-link" href="{{route('login')}}"></i><p style="color: white;">LOGIN</p></a></li>
+                                    @endguest
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <ul>
+                                    <li>
+                                        <div class="search-container">
+                                            <form action="{{route('getcontent')}}" method="post">
+                                                @csrf
+                                                @livewire('search')
+                                                <button type="submit"></button>
+                                                @livewireScripts
+                                            </form>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </nav>
-            </div>
-            <div class="col-md-3  d_none">
-                <ul class="email text_align_right">
-                    @auth
-                        <li class="dropdown dropdown-user">
-                            <a class="nav-link dropdown-toggle link" data-toggle="dropdown"
-                               href="{{route('myprofile')}}">
-                                <p style="color: white">{{Auth::user()->name}}</p>
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="{{route('myprofile')}}">My Profile</a>
-                                <a class="dropdown-item" href="#">My Comments</a>
-                                <li class="dropdown-divider"></li>
-                                <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
-                            </ul>
-                        </li>
-                    @endauth
-                    @guest
-                        <li><a href="{{route('login')}}"></i><p style="color: white;">LOGIN</p></a></li>
-                    @endguest
-                    <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i> </a></li>
-                </ul>
             </div>
         </div>
     </div>

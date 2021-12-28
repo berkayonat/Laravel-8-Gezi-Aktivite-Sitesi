@@ -17,10 +17,10 @@
             </li>
             <li>
                 <form class="navbar-search" action="javascript:;">
-                    <div class="rel">
+
                         <span class="search-icon"><i class="ti-search"></i></span>
                         <input class="form-control" placeholder="Search here...">
-                    </div>
+
                 </form>
             </li>
         </ul>

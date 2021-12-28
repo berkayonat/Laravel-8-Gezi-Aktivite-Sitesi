@@ -46,6 +46,12 @@ class HomeController extends Controller
         return view('home.content_detail',['data'=>$data, 'setting'=>$setting, 'datalist' => $datalist]);
     }
 
+    public function getcontent(Request $request)
+    {
+        $data = Content::where('title',$request->input('search'))->first();
+        return redirect()->route('content',['id'=>$data->id,'slug'=>$data->slug]);
+    }
+
     public function categorycontents($id,$slug)
     {
         $datalist = Content::where('category_id',$id)->latest()->get();
