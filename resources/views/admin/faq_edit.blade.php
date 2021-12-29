@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Edit Category')
-
+@section('title', 'Edit Content')
 
 
 @section('content')
@@ -10,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mt-4">
                     <div class="col-sm-6">
-                        <h3>Edit Category</h3>
+                        <h3>Edit Faq</h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Edit Category</li>
+                            <li class="breadcrumb-item active">Edit Faq</li>
                         </ol>
                     </div>
                 </div>
@@ -27,7 +26,7 @@
             <div class="card-body">
                 <div class="ibox">
                     <div class="ibox-head">
-                        <div class="ibox-title">Edit Category</div>
+                        <div class="ibox-title">Edit Faq</div>
                         <div class="ibox-tools">
                             <a class="ibox-collapse"><i class="fa fa-minus"></i></a>
                             <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
@@ -38,34 +37,20 @@
                         </div>
                     </div>
                     <div class="ibox-body">
-                        <form action="{{route('admin_category_update', ['id'=>$data->id])}}" method="post">
+                        <form action="{{route('admin_faq_update', ['id'=>$data->id])}}" method="post"
+                              enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label>Parent</label>
-                                <select class="form-control select2-close-mask" name="parent_id" style="width: 100%;padding:2px">
-                                    <option value="0">Main Category</option>
-                                    @foreach($datalist as $rs)
-                                        <option value="{{$rs->id}}" @if ($rs->id == $data->parent_id) selected="selected" @endif >
-                                            {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}
-                                        </option>
-                                    @endforeach
-                                </select>
+                                <label>Position</label>
+                                <input class="form-control" type="number" name="position" value="{{$data->position}}">
                             </div>
                             <div class="form-group">
-                                <label>Title</label>
-                                <input class="form-control" type="text" value="{{$data->title}}" name="title">
+                                <label>Question</label>
+                                <input class="form-control" type="text" name="question" value="{{$data->question}}">
                             </div>
                             <div class="form-group">
-                                <label>Keywords</label>
-                                <input class="form-control" type="text" value="{{$data->keywords}}" name="keywords">
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <input class="form-control" type="text" value="{{$data->description}}" name="description">
-                            </div>
-                            <div class="form-group">
-                                <label>Slug</label>
-                                <input class="form-control" type="text" value="{{$data->slug}}" name="slug" required>
+                                <label>Answer</label>
+                                <textarea id="summernote" name="answer">{{$data->answer}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Status</label>
@@ -76,7 +61,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Update Category</button>
+                                <button class="btn btn-primary" type="submit">Update Content</button>
                             </div>
                         </form>
                     </div>
@@ -88,7 +73,13 @@
 
         </section>
 
-
-
-
+        @endsection
+        @section('footer')
+            <script type="text/javascript">
+                $(function () {
+                    $('#summernote').summernote({
+                        height: 100
+                    });
+                });
+            </script>
 @endsection

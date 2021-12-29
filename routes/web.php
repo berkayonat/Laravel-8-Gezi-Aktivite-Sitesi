@@ -22,10 +22,10 @@ Route::get('/aboutus', [HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
-Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/content/{id}/{slug}', [HomeController::class, 'content'])->name('content');
 Route::get('/categorycontents/{id}/{slug}', [HomeController::class, 'categorycontents'])->name('categorycontents');
 Route::post('/getcontent', [HomeController::class, 'getcontent'])->name('getcontent');
+Route::get('/contentlist/{search}', [HomeController::class, 'contentlist'])->name('contentlist');
 
 
 //Admin
@@ -41,7 +41,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('category/show', [\App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('admin_category_show');
 
     #Content
-    Route::prefix('content')->group(function (){
+    Route::prefix('content')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\ContentController::class, 'index'])->name('admin_content');
         Route::get('create', [\App\Http\Controllers\Admin\ContentController::class, 'create'])->name('admin_content_add');
         Route::post('store', [\App\Http\Controllers\Admin\ContentController::class, 'store'])->name('admin_content_store');
@@ -52,7 +52,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     });
 
     #Message
-    Route::prefix('messages')->group(function (){
+    Route::prefix('messages')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\MessageController::class, 'index'])->name('admin_message');
         Route::get('edit/{id}', [\App\Http\Controllers\Admin\MessageController::class, 'edit'])->name('admin_message_edit');
         Route::post('update/{id}', [\App\Http\Controllers\Admin\MessageController::class, 'update'])->name('admin_message_update');
@@ -61,7 +61,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     });
 
     #Content Image Gallery
-    Route::prefix('image')->group(function (){
+    Route::prefix('image')->group(function () {
 
         Route::get('create/{content_id}', [\App\Http\Controllers\Admin\ImageController::class, 'create'])->name('admin_image_add');
         Route::post('store/{content_id}', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('admin_image_store');
@@ -72,25 +72,35 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     #Setting
     Route::get('setting', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin_setting');
     Route::post('setting/update', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin_setting_update');
+
+    #Faq
+    Route::prefix('faq')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\FaqController::class, 'index'])->name('admin_faq');
+        Route::get('create', [\App\Http\Controllers\Admin\FaqController::class, 'create'])->name('admin_faq_add');
+        Route::post('store', [\App\Http\Controllers\Admin\FaqController::class, 'store'])->name('admin_faq_store');
+        Route::get('edit/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'edit'])->name('admin_faq_edit');
+        Route::post('update/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'update'])->name('admin_faq_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('admin_faq_delete');
+        Route::get('show', [\App\Http\Controllers\Admin\FaqController::class, 'show'])->name('admin_faq_show');
+    });
 });
 
-Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function () {
+    Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function () {
 
-    Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('myprofile');
+        Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('myprofile');
 
-});
-Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
+    });
+    Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
 
-    Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->name('userprofile');
+        Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->name('userprofile');
 
-});
+    });
 
 
+    Route::get('/admin/login', [HomeController::class, 'login'])->name('admin_login');
+    Route::post('/admin/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
+    Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 
-Route::get('/admin/login', [HomeController::class, 'login'])->name('admin_login');
-Route::post('/admin/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
-Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');

@@ -83,7 +83,7 @@
 </footer>
 <!-- end footer -->
 <!-- Javascript files-->
-<script src="{{asset('assets')}}/js/jquery.min.js"></script>
+
 <script src="{{asset('assets')}}/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset('assets')}}/js/jquery-3.0.0.min.js"></script>
 <script src="{{asset('assets')}}/js/jquery.nice-select.min.js"></script>

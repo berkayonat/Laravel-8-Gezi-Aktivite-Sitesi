@@ -1,5 +1,6 @@
 @php
-    $parentCategories = \App\Http\Controllers\HomeController::categoryList()
+    $parentCategories = \App\Http\Controllers\HomeController::categoryList();
+    $setting = \App\Http\Controllers\HomeController::getSetting()
 @endphp
 <!-- header -->
 <div class="header">
@@ -29,7 +30,7 @@
 <div class="header_midil" style="background-color: #1d2124">
     <div class="container">
         <div class="row d_flex">
-            <div class=" col-md-1 col-sm-3 logo_section">
+            <div class=" col-md-2 col-sm-3 logo_section">
                 <div class="full">
                     <div class="center-desk">
                         <div class="logo">
@@ -38,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9 col-md-11">
+            <div class="col-sm-9 col-md-10">
                 <nav class="navigation navbar navbar-expand-md navbar-dark">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
                             aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,12 +73,15 @@
                                 <a class="nav-link" href="{{route('contact')}}">Contact</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{route('faq')}}">Faq</a>
+                            </li>
+                            <li class="nav-item">
                                 <ul>
                                     @auth
                                         <li class="dropdown dropdown-user">
                                             <a class="nav-link dropdown-toggle link" data-toggle="dropdown"
                                                href="{{route('myprofile')}}">
-                                                <p style="color: white">{{Auth::user()->name}}</p>
+                                                <p style="color: white;font-size:10px">{{Auth::user()->name}}</p>
                                             </a>
 
                                             <ul class="dropdown-menu dropdown-menu-right">
@@ -100,7 +104,7 @@
                                             <form action="{{route('getcontent')}}" method="post">
                                                 @csrf
                                                 @livewire('search')
-                                                <button type="submit"></button>
+
                                                 @livewireScripts
                                             </form>
                                         </div>

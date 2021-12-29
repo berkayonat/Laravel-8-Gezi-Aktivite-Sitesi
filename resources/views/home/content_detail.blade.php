@@ -11,45 +11,43 @@
     <div class="packages">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="titlepage text_align_center ">
-                        <h2>{{$data->title}}</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
                 <div class="col-md-6 offset-3">
-                    <div class="mySlides">
-                        <div class="numbertext"></div>
-                        <img src="{{Storage::url($data->image)}}" style="width:100%">
-                    </div>
-                    @foreach($datalist as $rs)
+                    <div class="container">
                         <div class="mySlides">
-                            <div class="numbertext"></div>
-                            <img src="{{Storage::url($rs->image)}}" style="width:100%">
-                        </div>
-                    @endforeach
-                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                    <a class="next" onclick="plusSlides(1)">❯</a>
 
-                    @php
-                        $i = 2
-                    @endphp
-                    <div class="row">
-                        <div class="column">
-                            <img class="demo cursor" src="{{Storage::url($data->image)}}" style="width:100%"
-                                 onclick="currentSlide(1)">
+                            <img src="{{Storage::url($data->image)}}" style="width:100%">
                         </div>
                         @foreach($datalist as $rs)
-                            <div class="column">
-                                <img class="demo cursor" src="{{Storage::url($rs->image)}}" style="width:100%"
-                                     onclick="currentSlide({{$i}})">
+                            <div class="mySlides">
+
+                                <img src="{{Storage::url($rs->image)}}" style="width:100%">
                             </div>
-                            @php
-                                $i++
-                            @endphp
                         @endforeach
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+
+                        <div class="caption-container">
+                            <p id="caption"></p>
+                        </div>
+
+                        @php
+                            $i = 2
+                        @endphp
+                        <div class="row">
+                            <div class="column">
+                                <img class="demo cursor" src="{{Storage::url($data->image)}}" style="width:100%"
+                                     onclick="currentSlide(1)">
+                            </div>
+                            @foreach($datalist as $rs)
+                                <div class="column">
+                                    <img class="demo cursor" src="{{Storage::url($rs->image)}}" style="width:100%"
+                                         onclick="currentSlide({{$i}})">
+                                </div>
+                                @php
+                                    $i++
+                                @endphp
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,8 +57,10 @@
                         <div class="tuscany">
                             <div class="tusc text_align_left">
                                 <div class="italy">
-                                    <h3>{{$data->title}}</h3>
+                                    <h3>{{$data->title}}</h3><br>
                                     <span><img src="{{asset('assets')}}/images/loca.png" alt="#"/> {{$data->country}} / {{$data->city}} / {{$data->location}}</span>
+                                    <p>Type : {{$data->type}}</p>
+                                    <p>Category : {{$category->title}}</p>
                                 </div>
                             </div>
                             <p>{!! $data->detail !!}</p>

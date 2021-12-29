@@ -14,7 +14,7 @@
         </div>
         <ul class="side-menu metismenu">
             <li>
-                <a class="active" href="{{route('admin_category')}}"><i class="sidebar-item-icon fa fa-th-large"></i>
+                <a class="active" href="{{route('admin_category')}}"><i class="sidebar-item-icon fa ti-layers-alt"></i>
                     <span class="nav-label">Category</span>
                 </a>
             </li>
@@ -31,6 +31,11 @@
             <li>
                 <a class="active" href="{{route('admin_message')}}"><i class="sidebar-item-icon fa ti-comment"></i>
                     <span class="nav-label">Contact Messages</span>
+                </a>
+            </li>
+            <li>
+                <a class="active" href="{{route('admin_faq')}}"><i class="sidebar-item-icon fa ti-help-alt"></i>
+                    <span class="nav-label">Faq</span>
                 </a>
             </li>
         </ul>

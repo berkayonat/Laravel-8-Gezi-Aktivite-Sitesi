@@ -10,7 +10,7 @@
 
     <div class="packages">
         <div class="container">
-            <div class="row" style="margin-top: 10px">
+            <div class="row">
                 <div class="col-md-7">
                     <div class="titlepage text_align_center">
                         <h2>Contact Information</h2>

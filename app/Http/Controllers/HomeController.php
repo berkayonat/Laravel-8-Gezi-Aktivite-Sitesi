@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Content;
+use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Message;
 use App\Models\Setting;
@@ -26,7 +27,7 @@ class HomeController extends Controller
     {
         $setting = Setting::first();
         $slider = Content::select('id','title','country','city','location','slug')->limit(3)->inRandomOrder()->get();
-        $home = Content::select('id','title','country','city','location','image','slug')->limit(6)->latest()->get();
+        $home = Content::select('id','title','country','city','location','image','slug')->limit(4)->latest()->get();
         $data = [
             'setting' => $setting,
             'slider' => $slider,
@@ -40,16 +41,33 @@ class HomeController extends Controller
     {
         $data = Content::find($id);
         $datalist = Image::where('content_id',$id)->get();
-        $setting = Setting::first();
-        #print_r($data);
+        $category = Category::where('id',$data->category_id)->get();
+        #print_r($category);
         #exit();
-        return view('home.content_detail',['data'=>$data, 'setting'=>$setting, 'datalist' => $datalist]);
+        return view('home.content_detail',['data'=>$data, 'datalist' => $datalist, 'category' => $category]);
     }
 
     public function getcontent(Request $request)
     {
-        $data = Content::where('title',$request->input('search'))->first();
-        return redirect()->route('content',['id'=>$data->id,'slug'=>$data->slug]);
+        $search = $request->input('search');
+        $count = Content::where('title','like', '%'.$search.'%')->get()->count();
+        if($count==1)
+        {
+            $data = Content::where('title','like', '%'.$search.'%')->first();
+
+            return redirect()->route('content',['id'=>$data->id,'slug'=>$data->slug]);
+        }
+        else
+        {
+            return redirect()->route('contentlist',['search'=>$search]);
+        }
+
+    }
+
+    public function contentlist($search)
+    {
+        $datalist=Content::where('title','like', '%'.$search.'%')->get();
+        return view('home.search_contents', ['datalist' => $datalist, 'search'=>$search]);
     }
 
     public function categorycontents($id,$slug)
@@ -60,6 +78,12 @@ class HomeController extends Controller
         #print_r($data);
         #exit();
         return view('home.category_contents', ['datalist' => $datalist, 'data'=>$data, 'setting'=>$setting]);
+    }
+
+    public function faq()
+    {
+        $datalist = Faq::all()->sortBy('position');
+        return view('home.faq', ['datalist' => $datalist]);
     }
 
     public function aboutus()

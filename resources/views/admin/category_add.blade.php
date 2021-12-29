@@ -63,7 +63,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Slug</label>
-                                <input class="form-control" type="text" name="slug">
+                                <input class="form-control" type="text" name="slug" required>
                             </div>
                             <div class="form-group">
                                 <label>Status</label>

@@ -21,7 +21,7 @@
                                     <div class="row">
                                         <div  class="col-md-10 offset-md-1">
                                             <div class="board">
-                                                <h1>{{$rs->title}} <br></h1>
+                                                <h1>{{$rs->title}}</h1>
                                                 <p>{{$rs->country}} / {{$rs->city}} / {{$rs->location}}</p>
                                                 <a class="read_more" href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>
                                             </div>

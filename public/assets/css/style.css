@@ -432,7 +432,7 @@ ul.top_infomation li a:hover {
 .navigation.navbar-dark .navbar-nav .nav-link {
     margin: 0px 28px;
     color: #fff;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 25px;
     font-weight: 400;
     border-radius: 0px;
@@ -504,7 +504,7 @@ ul.email li i {
 }
 
 .board h1 {
-    font-size: 80px;
+    font-size: 40px;
     line-height: 80px;
     color: #fff;
     font-weight: bold;
@@ -1321,10 +1321,6 @@ ul.conta li a {
 }
 /** end contact **/
 /* Content slideshow gallery */
- body {
-     font-family: Arial;
-     margin: 0;
- }
 
 * {
     box-sizing: border-box;
@@ -1332,11 +1328,6 @@ ul.conta li a {
 
 img {
     vertical-align: middle;
-}
-
-/* Position the image container (needed to position the left and right arrows) */
-.container {
-    position: relative;
 }
 
 /* Hide the images by default */
@@ -1417,7 +1408,7 @@ img {
     opacity: 1;
 }
 
-/* search bar */
+/*----------------------- search bar------------------------------ */
 
 /* Add a black background color to the top navigation bar */
 .topnav {
@@ -1425,7 +1416,7 @@ img {
     background-color: #e9e9e9;
 }
 
-/* Style the links inside the navigation bar */
+/*Style the links inside the navigation bar */
 .topnav a {
     float: left;
     display: block;

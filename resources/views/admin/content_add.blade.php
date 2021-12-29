@@ -62,8 +62,8 @@
                             <div class="form-group">
                                 <label>Type</label>
                                 <select class="form-control select2" name="type" style="width: 100%;">
-                                    <option selected="selected">Place</option>
                                     <option>Activity</option>
+                                    <option>Blog</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -88,7 +88,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Slug</label>
-                                <input class="form-control" type="text" name="slug">
+                                <input class="form-control" type="text" name="slug" required>
                             </div>
                             <div class="form-group">
                                 <label>Status</label>
