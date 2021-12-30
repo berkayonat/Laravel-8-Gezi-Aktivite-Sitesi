@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -85,14 +86,30 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     });
 });
 
-    Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function () {
 
-        Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('myprofile');
-
-    });
     Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
 
         Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->name('userprofile');
+
+        #Content
+        Route::prefix('content')->group(function () {
+            Route::get('/', [ContentController::class, 'index'])->name('user_content');
+            Route::get('create', [ContentController::class, 'create'])->name('user_content_add');
+            Route::post('store', [ContentController::class, 'store'])->name('user_content_store');
+            Route::get('edit/{id}', [ContentController::class, 'edit'])->name('user_content_edit');
+            Route::post('update/{id}', [ContentController::class, 'update'])->name('user_content_update');
+            Route::get('delete/{id}', [ContentController::class, 'destroy'])->name('user_content_delete');
+            Route::get('show', [ContentController::class, 'show'])->name('user_content_show');
+        });
+
+        #Content Image Gallery
+        Route::prefix('image')->group(function () {
+
+            Route::get('create/{content_id}', [\App\Http\Controllers\Admin\ImageController::class, 'create'])->name('user_image_add');
+            Route::post('store/{content_id}', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('user_image_store');
+            Route::get('delete/{id}/{content_id}', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('user_image_delete');
+            Route::get('show', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name('user_image_show');
+        });
 
     });
 

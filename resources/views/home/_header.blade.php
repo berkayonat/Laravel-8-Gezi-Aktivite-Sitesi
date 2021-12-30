@@ -80,13 +80,13 @@
                                     @auth
                                         <li class="dropdown dropdown-user">
                                             <a class="nav-link dropdown-toggle link" data-toggle="dropdown"
-                                               href="{{route('myprofile')}}">
+                                               href="{{route('userprofile')}}">
                                                 <p style="color: white;font-size:10px">{{Auth::user()->name}}</p>
                                             </a>
 
                                             <ul class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="{{route('myprofile')}}">My Profile</a>
-                                                <a class="dropdown-item" href="#">My Comments</a>
+                                                <a class="dropdown-item" href="{{route('userprofile')}}">My Profile</a>
+                                                <a class="dropdown-item" href="{{route('user_content')}}">My Contents</a>
                                                 <li class="dropdown-divider"></li>
                                                 <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                                             </ul>
