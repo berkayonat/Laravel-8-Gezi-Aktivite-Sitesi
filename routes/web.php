@@ -31,6 +31,10 @@ Route::get('/contentlist/{search}', [HomeController::class, 'contentlist'])->nam
 
 //Admin
 Route::middleware('auth')->prefix('admin')->group(function () {
+
+    #Admin Role
+    Route::middleware('admin')->group(function (){
+
     Route::get('/', [AdminHomeController::class, 'index'])->name('admin_home');
     #Category
     Route::get('category', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin_category');
@@ -83,6 +87,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::post('update/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'update'])->name('admin_faq_update');
         Route::get('delete/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('admin_faq_delete');
         Route::get('show', [\App\Http\Controllers\Admin\FaqController::class, 'show'])->name('admin_faq_show');
+    });
+
     });
 });
 

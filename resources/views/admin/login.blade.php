@@ -59,6 +59,7 @@
             <a class="color-blue" href="register.html">Create accaunt</a>
         </div>
     </form>
+    @include('home.message')
 </div>
 <!-- BEGIN PAGA BACKDROPS-->
 <div class="sidenav-backdrop backdrop"></div>
