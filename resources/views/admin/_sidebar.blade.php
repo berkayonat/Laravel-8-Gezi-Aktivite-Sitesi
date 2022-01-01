@@ -2,7 +2,9 @@
     <div id="sidebar-collapse">
         <div class="admin-block d-flex">
             <div>
-                <img src="{{asset('assets')}}/admin/assets/img/admin-avatar.png" width="45px"/>
+                @if(Auth::user()->profile_photo_path)
+                    <img src="{{Storage::url(Auth::user()->profile_photo_path)}}" width="45px">
+                @endif
             </div>
             <div class="admin-info">
                 <div class="font-strong">
@@ -36,6 +38,11 @@
             <li>
                 <a class="active" href="{{route('admin_faq')}}"><i class="sidebar-item-icon fa ti-help-alt"></i>
                     <span class="nav-label">Faq</span>
+                </a>
+            </li>
+            <li>
+                <a class="active" href="{{route('admin_users')}}"><i class="sidebar-item-icon fa ti-user"></i>
+                    <span class="nav-label">Users</span>
                 </a>
             </li>
         </ul>

@@ -141,7 +141,9 @@
             </li>
             <li class="dropdown dropdown-user">
                 <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
-                    <img src="{{asset('assets')}}/admin/assets/img/admin-avatar.png" />
+                    @if(Auth::user()->profile_photo_path)
+                        <img src="{{Storage::url(Auth::user()->profile_photo_path)}}">
+                    @endif
                     <span></span>{{Auth::user()->name}}<i class="fa fa-angle-down m-l-5"></i></a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="profile.html"><i class="fa fa-user"></i>Profile</a>
