@@ -26,12 +26,14 @@ class HomeController extends Controller
     public function index()
     {
         $setting = Setting::first();
-        $slider = Content::select('id','title','country','city','location','slug')->limit(3)->inRandomOrder()->get();
-        $home = Content::select('id','title','country','city','location','image','slug')->limit(4)->latest()->get();
+        $slider = Content::select('id','title','country','city','location','slug')->where('status','=','True')->where('type','=','Activity')->limit(3)->inRandomOrder()->get();
+        $home = Content::select('id','title','country','city','location','image','slug')->where('status','=','True')->where('type','=','Activity')->limit(4)->latest()->get();
+        $blog = Content::select('id','title','country','city','location','image','slug')->where('status','=','True')->where('type','=','Blog')->limit(4)->latest()->get();
         $data = [
             'setting' => $setting,
             'slider' => $slider,
-            'home' => $home
+            'home' => $home,
+            'blog' => $blog
         ];
 
         return view('home.index',$data);
@@ -72,17 +74,24 @@ class HomeController extends Controller
 
     public function categorycontents($id,$slug)
     {
-        $datalist = Content::where('category_id',$id)->latest()->get();
+        $datalist = Content::where('category_id',$id,)->where('status','=','True')->where('type','=','Activity')->latest()->get();
         $data = Category::find($id);
         $setting = Setting::first();
         #print_r($data);
         #exit();
         return view('home.category_contents', ['datalist' => $datalist, 'data'=>$data, 'setting'=>$setting]);
     }
+    public function blog()
+    {
+        $datalist = Content::where('status','=','True')->where('type','=','Blog')->latest()->get();
+        $setting = Setting::first();
+
+        return view('home.blog', ['datalist' => $datalist,'setting'=>$setting]);
+    }
 
     public function faq()
     {
-        $datalist = Faq::all()->sortBy('position');
+        $datalist = Faq::all()->where('status','=','True')->sortBy('position');
         return view('home.faq', ['datalist' => $datalist]);
     }
 

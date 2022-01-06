@@ -60,7 +60,6 @@
                                     <h3>{{$data->title}}</h3><br>
                                     <span><img src="{{asset('assets')}}/images/loca.png" alt="#"/> {{$data->country}} / {{$data->city}} / {{$data->location}}</span>
                                     <p>Type : {{$data->type}}</p>
-                                    <p>Category : {{$category->title}}</p>
                                 </div>
                             </div>
                             <p>{!! $data->detail !!}</p>

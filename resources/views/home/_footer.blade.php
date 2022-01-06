@@ -6,32 +6,6 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 ">
-                    <div class="letter text_align_left">
-                        <h2>Contact Us</h2>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <form id="request" class="main_form">
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <input class="cont_in" placeholder="Full Name" type="type" name=" Name">
-                            </div>
-                            <div class="col-md-12">
-                                <input class="cont_in" placeholder="Your Email" type="type" name="Email">
-                            </div>
-                            <div class="col-md-12">
-                                <input class="cont_in" placeholder="Phone Number" type="type" name="Phone Number">
-                            </div>
-                            <div class="col-md-12">
-                                <input class="cont_in" placeholder="Your Words" type="type" name="Words">
-                            </div>
-                            <div class="col-md-12">
-                                <button class="send_btnt">Send</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
                 <div class="col-md-4 ">
                     <ul class="conta">
                         <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{$setting->address}}

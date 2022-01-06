@@ -1,10 +1,7 @@
 @extends('layouts.home')
 
-@section('title',$data->title . " Content List")
+@section('title',"Blog Page")
 
-@section('keywords',$data->keywords)
-
-@section('description',){{$data->description}} @endsection
 
 @section('content')
     <!-- contents -->
@@ -13,7 +10,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage text_align_center ">
-                        <h2>{{$data->title}} Contents</h2>
+                        <h2>Blog</h2>
                     </div>
                 </div>
             </div>

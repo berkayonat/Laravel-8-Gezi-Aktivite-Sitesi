@@ -25,6 +25,7 @@ Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendm
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/content/{id}/{slug}', [HomeController::class, 'content'])->name('content');
 Route::get('/categorycontents/{id}/{slug}', [HomeController::class, 'categorycontents'])->name('categorycontents');
+Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::post('/getcontent', [HomeController::class, 'getcontent'])->name('getcontent');
 Route::get('/contentlist/{search}', [HomeController::class, 'contentlist'])->name('contentlist');
 

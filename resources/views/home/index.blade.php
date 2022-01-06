@@ -32,10 +32,7 @@
                                     <h3>{{$rs->title}}</h3>
                                     <span><img src="{{asset('assets')}}/images/loca.png" alt="#"/>  {{$rs->country}} / {{$rs->city}} / {{$rs->location}}</span>
                                 </div>
-                            </div>
-                            <p>Content here, content here', making it look like readable English. Many desktop
-                                publishing packagesContent here, content here', making it look like readable English.
-                                Many desktop publishing packages and web page editors now us</p>
+                            </div><br>
                             <div class="tusc">
                                 <a class="read_more" href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>
                             </div>
@@ -55,7 +52,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($home as $rs)
+                @foreach($blog as $rs)
                     <div class=" col-md-6">
                         <div id="ho_img" class="packages_box" data-aos={{$loop->iteration % 2 == 1 ? 'fade-right' : 'fade-left' }}>
                             <figure><img src="{{Storage::url($rs->image)}}" style="height: 342px" alt="#"/></figure>
@@ -65,10 +62,7 @@
                                         <h3>{{$rs->title}}</h3>
                                         <span><img src="{{asset('assets')}}/images/loca.png" alt="#"/>  {{$rs->country}} / {{$rs->city}} / {{$rs->location}}</span>
                                     </div>
-                                </div>
-                                <p>Content here, content here', making it look like readable English. Many desktop
-                                    publishing packagesContent here, content here', making it look like readable English.
-                                    Many desktop publishing packages and web page editors now us</p>
+                                </div><br>
                                 <div class="tusc">
                                     <a class="read_more" href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>
                                 </div>
