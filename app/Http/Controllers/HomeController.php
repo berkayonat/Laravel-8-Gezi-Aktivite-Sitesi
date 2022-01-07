@@ -49,6 +49,16 @@ class HomeController extends Controller
         return view('home.content_detail',['data'=>$data, 'datalist' => $datalist, 'category' => $category]);
     }
 
+    public function blogdetail($id,$slug)
+    {
+        $data = Content::find($id);
+        $datalist = Image::where('content_id',$id)->get();
+        $category = Category::where('id',$data->category_id)->get();
+        #print_r($category);
+        #exit();
+        return view('home.blog_detail',['data'=>$data, 'datalist' => $datalist, 'category' => $category]);
+    }
+
     public function getcontent(Request $request)
     {
         $search = $request->input('search');

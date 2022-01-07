@@ -24,6 +24,7 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/content/{id}/{slug}', [HomeController::class, 'content'])->name('content');
+Route::get('/blogdetail/{id}/{slug}', [HomeController::class, 'blogdetail'])->name('blogdetail');
 Route::get('/categorycontents/{id}/{slug}', [HomeController::class, 'categorycontents'])->name('categorycontents');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::post('/getcontent', [HomeController::class, 'getcontent'])->name('getcontent');
