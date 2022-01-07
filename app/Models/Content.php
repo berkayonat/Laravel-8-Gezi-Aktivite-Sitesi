@@ -14,4 +14,14 @@ class Content extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function participation()
+    {
+        return $this->hasMany(Participation::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

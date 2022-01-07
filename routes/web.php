@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ParticipationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +25,10 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/content/{id}/{slug}', [HomeController::class, 'content'])->name('content');
-Route::get('/blogdetail/{id}/{slug}', [HomeController::class, 'blogdetail'])->name('blogdetail');
+Route::get('/allcontent/', [HomeController::class, 'allcontent'])->name('allcontent');
 Route::get('/categorycontents/{id}/{slug}', [HomeController::class, 'categorycontents'])->name('categorycontents');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/blogdetail/{id}/{slug}', [HomeController::class, 'blogdetail'])->name('blogdetail');
 Route::post('/getcontent', [HomeController::class, 'getcontent'])->name('getcontent');
 Route::get('/contentlist/{search}', [HomeController::class, 'contentlist'])->name('contentlist');
 
@@ -131,6 +133,15 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::post('store/{content_id}', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('user_image_store');
             Route::get('delete/{id}/{content_id}', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('user_image_delete');
             Route::get('show', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name('user_image_show');
+        });
+
+        #Participation
+        Route::prefix('participation')->group(function () {
+            Route::get('/', [ParticipationController::class, 'index'])->name('user_participation');
+            Route::post('store/{id}', [ParticipationController::class, 'store'])->name('user_participation_store');
+            Route::post('update/{id}', [ParticipationController::class, 'update'])->name('user_participation_update');
+            Route::get('delete/{id}', [ParticipationController::class, 'destroy'])->name('user_participation_delete');
+
         });
 
     });

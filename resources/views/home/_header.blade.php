@@ -45,8 +45,7 @@
                             <li class="nav-item">
                                 <ul>
                                     <li class="dropdown dropdown-user">
-                                        <a class="nav-link dropdown-toggle link" data-toggle="dropdown"
-                                           href="#">Categories</a>
+                                        <a class="nav-link dropdown-toggle link" data-toggle="dropdown">Categories</a>
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             @foreach($parentCategories as $rs)
                                                 <a class="dropdown-item"
@@ -72,15 +71,13 @@
                                 <ul>
                                     @auth
                                         <li class="dropdown dropdown-user">
-                                            <a class="nav-link dropdown-toggle link" data-toggle="dropdown"
-                                               href="{{route('userprofile')}}">
-                                                <p style="color: white;font-size:15px">{{Auth::user()->name}}</p>
+                                            <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
+                                                <p style="color: white;font-size:15px"> {{Auth::user()->name}} </p>
                                             </a>
-
                                             <ul class="dropdown-menu dropdown-menu-right">
                                                 <a class="dropdown-item" href="{{route('userprofile')}}">My Profile</a>
-                                                <a class="dropdown-item" href="{{route('user_content')}}">My
-                                                    Contents</a>
+                                                <a class="dropdown-item" href="{{route('user_content')}}">My Contents</a>
+                                                <a class="dropdown-item" href="{{route('user_participation')}}">My Participations</a>
                                                 <li class="dropdown-divider"></li>
                                                 <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                                             </ul>

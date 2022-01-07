@@ -4,7 +4,7 @@
     <ul>
         <li style="margin-bottom: 10px"><a href="{{route('userprofile')}}">MY PROFILE</a></li>
         <li style="margin-bottom: 10px"><a href="{{route('user_content')}}">MY CONTENTS</a></li>
-        <li style="margin-bottom: 10px"><a href="#">MY COMMENTS</a></li>
+        <li style="margin-bottom: 10px"><a href="{{route('user_participation')}}">MY PARTICIPATIONS</a></li>
         <li style="margin-bottom: 10px"><a href="{{route('logout')}}">LOGOUT</a></li>
     </ul>
 </div>

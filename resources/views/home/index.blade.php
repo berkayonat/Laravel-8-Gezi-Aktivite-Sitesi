@@ -41,7 +41,7 @@
                 </div>
                 @endforeach
                 <div class="col-md-12">
-                    <a class="read_more" href="Javascript:void(0)">See More</a>
+                    <a class="read_more" href="{{route('allcontent')}}">See More</a>
                 </div>
             </div>
             <div class="row" style="margin-top: 50px">
@@ -71,7 +71,7 @@
                     </div>
                 @endforeach
                 <div class="col-md-12">
-                    <a class="read_more" href="Javascript:void(0)">See More</a>
+                    <a class="read_more" href="{{route('blog')}}">See More</a>
                 </div>
             </div>
         </div>

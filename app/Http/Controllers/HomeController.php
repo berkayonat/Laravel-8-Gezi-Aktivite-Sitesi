@@ -8,8 +8,10 @@ use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Message;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Participation;
 
 class HomeController extends Controller
 {
@@ -43,10 +45,15 @@ class HomeController extends Controller
     {
         $data = Content::find($id);
         $datalist = Image::where('content_id',$id)->get();
-        $category = Category::where('id',$data->category_id)->get();
-        #print_r($category);
-        #exit();
-        return view('home.content_detail',['data'=>$data, 'datalist' => $datalist, 'category' => $category]);
+        $participants = Participation::where('content_id', $id)->get();
+
+        return view('home.content_detail',['data'=>$data, 'datalist' => $datalist, 'participants' => $participants]);
+    }
+    public function allcontent()
+    {
+        $datalist = Content::where('status','=','True')->where('type','=','Activity')->latest()->get();
+
+        return view('home.allcontent', ['datalist' => $datalist]);
     }
 
     public function blogdetail($id,$slug)

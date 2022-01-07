@@ -114,7 +114,7 @@ class ContentController extends Controller
             $data->image = Storage::putFile('images', $request->file('image'));
         }
         $data->save();
-        return redirect()->route('user_content');
+        return redirect()->route('user_content')->with('success','Content Updated Successfully');;
     }
 
     /**
@@ -128,6 +128,6 @@ class ContentController extends Controller
         $data = Content::find($id);
         $data->delete();
 
-        return redirect()->route('user_content');
+        return redirect()->route('user_content')->with('success','Content Deleted Successfully');
     }
 }

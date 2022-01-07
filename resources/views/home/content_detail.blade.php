@@ -7,7 +7,7 @@
 @section('description'){{$data->description}} @endsection
 
 @section('content')
-
+    @include('home.message')
     <div class="packages">
         <div class="container">
             <div class="row">
@@ -60,15 +60,39 @@
                                     <h3>{{$data->title}}</h3><br>
                                     <span><img src="{{asset('assets')}}/images/loca.png" alt="#"/> {{$data->country}} / {{$data->city}} / {{$data->location}}</span>
                                     <p>Type : {{$data->type}}</p>
+                                    <p>Author : {{$data->user->name}}</p>
                                 </div>
                             </div>
                             <p>{!! $data->detail !!}</p>
                             <div class="tusc">
-                                <a class="read_more" href="#">Join</a>
+                                <form action="{{route('user_participation_store',['id'=>$data->id])}}" method="post" class="read_more">
+                                    @csrf
+                                <button type="submit" class="read_more">Join</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <h1>Participant List</h1><br><br>
+                <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0"
+                       width="100%">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($participants as $rs)
+                        <tr>
+                            <td>{{$rs->user->name}}</td>
+                            <td>{{$rs->user->email}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -107,3 +131,25 @@
         captionText.innerHTML = dots[slideIndex - 1].alt;
     }
 </script>
+@section('footerjs')
+    <script src="{{asset('assets')}}/admin/assets/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="{{asset('assets')}}/admin/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
+    <!-- CORE SCRIPTS-->
+    <script src="{{asset('assets')}}/admin/assets/js/app.min.js" type="text/javascript"></script>
+    <!-- PAGE LEVEL SCRIPTS-->
+    <script type="text/javascript">
+        $(function() {
+            $('#example-table').DataTable({
+                pageLength: 10,
+                //"ajax": './assets/demo/data/table_data.json',
+                /*"columns": [
+                    { "data": "name" },
+                    { "data": "office" },
+                    { "data": "extn" },
+                    { "data": "start_date" },
+                    { "data": "salary" }
+                ]*/
+            });
+        })
+    </script>
+@endsection
