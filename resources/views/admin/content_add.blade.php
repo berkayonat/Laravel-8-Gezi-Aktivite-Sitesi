@@ -2,7 +2,6 @@
 
 @section('title', 'Add Content')
 
-
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">
@@ -67,16 +66,20 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>City</label>
-                                <input class="form-control" type="text" name="city">
-                            </div>
-                            <div class="form-group">
                                 <label>Country</label>
                                 <input class="form-control" type="text" name="country">
                             </div>
                             <div class="form-group">
+                                <label>City</label>
+                                <input class="form-control" type="text" name="city">
+                            </div>
+                            <div class="form-group">
                                 <label>Location</label>
                                 <input class="form-control" type="text" name="location">
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input class="form-control" type="datetime-local" name="datetime" required>
                             </div>
                             <div class="form-group">
                                 <label>Detail</label>

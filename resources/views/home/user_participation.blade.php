@@ -25,9 +25,10 @@
                                     <th>Id</th>
                                     <th>Category</th>
                                     <th>Content</th>
-                                    <th>City</th>
                                     <th>Country</th>
+                                    <th>City</th>
                                     <th>Location</th>
+                                    <th>Date</th>
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th>Delete</th>
@@ -39,9 +40,10 @@
                                         <td>{{$rs->id}}</td>
                                         <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->content->category,$rs->content->category->title)}}</td>
                                         <td><a href="{{route('content',['id'=>$rs->content->id,'slug'=>$rs->content->slug])}}">{{$rs->content->title}}</a></td>
-                                        <td>{{$rs->content->city}}</td>
                                         <td>{{$rs->content->country}}</td>
+                                        <td>{{$rs->content->city}}</td>
                                         <td>{{$rs->content->location}}</td>
+                                        <td>{{ date('d-m-Y H:i', strtotime($rs->content->datetime)) }}</td>
                                         <td>
                                             @if($rs->content->image)
                                                 <img src="{{ Storage::url($rs->content->image)}}" style="height: 30px" alt="">

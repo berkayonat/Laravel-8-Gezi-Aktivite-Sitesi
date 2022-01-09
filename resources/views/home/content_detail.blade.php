@@ -59,8 +59,12 @@
                                 <div class="italy">
                                     <h3>{{$data->title}}</h3><br>
                                     <span><img src="{{asset('assets')}}/images/loca.png" alt="#"/> {{$data->country}} / {{$data->city}} / {{$data->location}}</span>
-                                    <p>Type : {{$data->type}}</p>
-                                    <p>Author : {{$data->user->name}}</p>
+                                    <span>Type : {{$data->type}}</span>
+                                    <span>Organizer : {{$data->user->name}}</span>
+                                </div>
+                                <div class="italy_right">
+                                    <h3>Activity Date</h3>
+                                    <span>{{ date('d-m-Y H:i', strtotime($data->datetime)) }}</span>
                                 </div>
                             </div>
                             <p>{!! $data->detail !!}</p>

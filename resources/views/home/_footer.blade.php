@@ -66,4 +66,5 @@
 <script src="{{asset('assets')}}/js/bootstrap-datepicker.min.js"></script>
 <script src="{{asset('assets')}}/js/niceCountryInput.js"></script>
 <script src="{{asset('assets')}}/js/custom.js"></script>
+
 <script>  AOS.init();</script>

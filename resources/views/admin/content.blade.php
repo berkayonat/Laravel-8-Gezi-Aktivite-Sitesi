@@ -25,9 +25,9 @@
                                 <th>Category</th>
                                 <th>Title</th>
                                 <th>Type</th>
-                                <th>City</th>
                                 <th>Country</th>
-                                <th>Location</th>
+                                <th>City</th>
+                                <th>Date</th>
                                 <th>Image</th>
                                 <th>Image Gallery</th>
                                 <th>Status</th>
@@ -42,9 +42,9 @@
                                 <td>{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title)}}</td>
                                 <td>{{$rs->title}}</td>
                                 <td>{{$rs->type}}</td>
-                                <td>{{$rs->city}}</td>
                                 <td>{{$rs->country}}</td>
-                                <td>{{$rs->location}}</td>
+                                <td>{{$rs->city}}</td>
+                                <td>{{ date('d-m-Y H:i', strtotime($rs->datetime)) }}</td>
                                 <td>
                                     @if($rs->image)
                                         <img src="{{ Storage::url($rs->image)}}" height="30" alt="">

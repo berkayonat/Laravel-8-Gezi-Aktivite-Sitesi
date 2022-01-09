@@ -28,8 +28,8 @@ class HomeController extends Controller
     public function index()
     {
         $setting = Setting::first();
-        $slider = Content::select('id','title','country','city','location','slug')->where('status','=','True')->where('type','=','Activity')->limit(3)->inRandomOrder()->get();
-        $home = Content::select('id','title','country','city','location','image','slug')->where('status','=','True')->where('type','=','Activity')->limit(4)->latest()->get();
+        $slider = Content::select('id','title','country','city','location','datetime','slug')->where('status','=','True')->where('type','=','Activity')->where('datetime','>=',today())->limit(3)->inRandomOrder()->get();
+        $home = Content::select('id','title','country','city','location','datetime','image','slug')->where('status','=','True')->where('type','=','Activity')->where('datetime','>=',today())->limit(4)->orderBy('datetime')->get();
         $blog = Content::select('id','title','country','city','location','image','slug')->where('status','=','True')->where('type','=','Blog')->limit(4)->latest()->get();
         $data = [
             'setting' => $setting,

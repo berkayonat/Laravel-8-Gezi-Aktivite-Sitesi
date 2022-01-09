@@ -32,6 +32,10 @@
                                     <h3>{{$rs->title}}</h3>
                                     <span><img src="{{asset('assets')}}/images/loca.png" alt="#"/>  {{$rs->country}} / {{$rs->city}} / {{$rs->location}}</span>
                                 </div>
+                                <div class="italy_right">
+                                    <h3>Activity Date</h3>
+                                    <span>{{ date('d-m-Y H:i', strtotime($rs->datetime)) }}</span>
+                                </div>
                             </div><br>
                             <div class="tusc">
                                 <a class="read_more" href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>

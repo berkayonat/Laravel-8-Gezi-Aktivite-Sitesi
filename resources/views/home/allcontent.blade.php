@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage text_align_center ">
-                        <h2>Activities</h2>
+                        <h2>All Activities</h2>
                     </div>
                 </div>
             </div>
@@ -24,6 +24,10 @@
                                 <div class="italy">
                                     <h3>{{$rs->title}}</h3>
                                     <span><img src="{{asset('assets')}}/images/loca.png" alt="#"/>  {{$rs->country}} / {{$rs->city}} / {{$rs->location}}</span>
+                                </div>
+                                <div class="italy_right">
+                                    <h3>Activity Date</h3>
+                                    <span>{{ date('d-m-Y H:i', strtotime($rs->datetime)) }}</span>
                                 </div>
                             </div><br>
                             <div class="tusc">

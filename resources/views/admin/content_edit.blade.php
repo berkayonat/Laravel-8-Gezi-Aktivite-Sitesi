@@ -70,16 +70,20 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>City</label>
-                                <input class="form-control" type="text" value="{{$data->city}}" name="city">
-                            </div>
-                            <div class="form-group">
                                 <label>Country</label>
                                 <input class="form-control" type="text" value="{{$data->country}}" name="country">
                             </div>
                             <div class="form-group">
+                                <label>City</label>
+                                <input class="form-control" type="text" value="{{$data->city}}" name="city">
+                            </div>
+                            <div class="form-group">
                                 <label>Location</label>
                                 <input class="form-control" type="text" value="{{$data->location}}" name="location">
+                            </div>
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input class="form-control" type="datetime-local" value="{{ date('Y-m-d\TH:i', strtotime($data->datetime)) }}" name="datetime" required>
                             </div>
                             <div class="form-group">
                                 <label>Detail</label>

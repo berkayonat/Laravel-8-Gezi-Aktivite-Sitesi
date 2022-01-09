@@ -54,6 +54,7 @@ class ContentController extends Controller
         $data->city = $request->input('city');
         $data->country = $request->input('country');
         $data->location = $request->input('location');
+        $data->datetime = $request->input('datetime');
         $data->detail = $request->input('detail');
         if ($request->file('image') != null) {
             $data->image = Storage::putFile('images', $request->file('image'));
@@ -109,6 +110,7 @@ class ContentController extends Controller
         $data->city = $request->input('city');
         $data->country = $request->input('country');
         $data->location = $request->input('location');
+        $data->datetime = $request->input('datetime');
         $data->detail = $request->input('detail');
         if ($request->file('image') != null) {
             $data->image = Storage::putFile('images', $request->file('image'));

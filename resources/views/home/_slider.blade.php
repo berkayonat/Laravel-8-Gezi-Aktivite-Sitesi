@@ -1,5 +1,4 @@
-@php
-@endphp
+
 <!-- slider -->
 <div class="full_bg">
     <div class="slider_main">
@@ -22,6 +21,7 @@
                                         <div  class="col-md-10 offset-md-1">
                                             <div class="board">
                                                 <h1>{{$rs->title}}</h1>
+                                                <span>{{ date('d-m-Y H:i', strtotime($rs->datetime)) }}</span>
                                                 <p>{{$rs->country}} / {{$rs->city}} / {{$rs->location}}</p>
                                                 <a class="read_more" href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>
                                             </div>
