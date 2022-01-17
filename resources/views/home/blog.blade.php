@@ -27,7 +27,7 @@
                                 </div>
                             </div><br>
                             <div class="tusc">
-                                <a class="read_more" href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>
+                                <a class="read_more" href="{{route('blogdetail',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>
                             </div>
                         </div>
                     </div>

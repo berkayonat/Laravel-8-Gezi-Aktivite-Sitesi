@@ -40,7 +40,7 @@ class ParticipationController extends Controller
     {
         $data = Participation::where('content_id', $id)->where('user_id', Auth::id())->first();
         if ($data) {
-            return back()->with('warning', 'You already have a request to join.');
+            return back()->with('warning', 'You are already a participant.');
         } else {
             $data = new Participation;
 
@@ -48,7 +48,7 @@ class ParticipationController extends Controller
             $data->user_id = Auth::id();
 
             $data->save();
-            return back()->with('success', 'Your participation request has been received.');
+            return back()->with('success', 'You have successfully participated.');
         }
 
     }

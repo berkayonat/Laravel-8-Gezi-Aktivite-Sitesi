@@ -15,12 +15,12 @@
                     <div class="container">
                         <div class="mySlides">
 
-                            <img src="{{Storage::url($data->image)}}" style="width:100%">
+                            <img src="{{Storage::url($data->image)}}" style="width:100%;height: 300px">
                         </div>
                         @foreach($datalist as $rs)
                             <div class="mySlides">
 
-                                <img src="{{Storage::url($rs->image)}}" style="width:100%">
+                                <img src="{{Storage::url($rs->image)}}" style="width:100%;height: 300px">
                             </div>
                         @endforeach
                         <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -35,12 +35,12 @@
                         @endphp
                         <div class="row">
                             <div class="column">
-                                <img class="demo cursor" src="{{Storage::url($data->image)}}" style="width:100%"
+                                <img class="demo cursor" src="{{Storage::url($data->image)}}" style="width:100%;height: 70px"
                                      onclick="currentSlide(1)">
                             </div>
                             @foreach($datalist as $rs)
                                 <div class="column">
-                                    <img class="demo cursor" src="{{Storage::url($rs->image)}}" style="width:100%"
+                                    <img class="demo cursor" src="{{Storage::url($rs->image)}}" style="width:100%;height: 70px"
                                          onclick="currentSlide({{$i}})">
                                 </div>
                                 @php
