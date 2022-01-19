@@ -33,15 +33,6 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="follow letter text_align_left">
-                        <h3>Newsletter</h3>
-                        <form class="form_subscri">
-                            <input class="newsl" placeholder="Email" type="text" name="Email">
-                            <button class="subsci_btn">subscribe</button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="copyright">

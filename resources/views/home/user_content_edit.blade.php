@@ -81,20 +81,12 @@
                                 <label>Image</label>
                                 <input class="form-control" type="file" name="image">
                                 @if($data->image)
-                                    <img src="{{ Storage::url($data->image)}}" height="20" alt="">
+                                    <img src="{{ Storage::url($data->image)}}" style="height: 200px" alt="">
                                 @endif
                             </div>
                             <div class="form-group">
                                 <label>Slug</label>
                                 <input class="form-control" type="text" value="{{$data->slug}}" name="slug" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control select2" name="status" style="width: 100%;">
-                                    <option selected="selected">{{$data->status}}</option>
-                                    <option>False</option>
-                                    <option>True</option>
-                                </select>
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Update Content</button>

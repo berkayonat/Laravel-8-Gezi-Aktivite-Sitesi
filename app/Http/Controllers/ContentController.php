@@ -47,7 +47,6 @@ class ContentController extends Controller
         $data->keywords = $request->input('keywords');
         $data->description = $request->input('description');
         $data->slug = $request->input('slug');
-        $data->status = $request->input('status');
         $data->category_id = $request->input('category_id');
         $data->user_id = Auth::id();
         $data->type = $request->input('type');
@@ -103,7 +102,6 @@ class ContentController extends Controller
         $data->keywords = $request->input('keywords');
         $data->description = $request->input('description');
         $data->slug = $request->input('slug');
-        $data->status = $request->input('status');
         $data->category_id = $request->input('category_id');
         $data->user_id = Auth::id();
         $data->type = $request->input('type');

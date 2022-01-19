@@ -80,13 +80,6 @@
                                     <input class="form-control" type="text" name="slug" required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Status</label>
-                                    <select class="form-control select2" name="status" style="width: 100%;">
-                                        <option selected="selected">False</option>
-                                        <option>True</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <button class="btn btn-primary" type="submit">Add Content</button>
                                 </div>
                             </form>

@@ -20,10 +20,9 @@
                                     <div class="row">
                                         <div  class="col-md-10 offset-md-1">
                                             <div class="board">
+                                                <a href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}"><img src="{{Storage::url($rs->image)}}" style="height: 300px;width: 500px" alt="#"/></a>
                                                 <h1>{{$rs->title}}</h1>
                                                 <span>{{ date('d-m-Y H:i', strtotime($rs->datetime)) }}</span>
-                                                <p>{{$rs->country}} / {{$rs->city}} / {{$rs->location}}</p>
-                                                <a class="read_more" href="{{route('content',['id'=>$rs->id,'slug'=>$rs->slug])}}">Read More</a>
                                             </div>
                                         </div>
                                     </div>

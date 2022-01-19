@@ -48,7 +48,7 @@
                                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">Categories</a>
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             @foreach($parentCategories as $rs)
-                                                <a class="dropdown-item"
+                                               <a class="dropdown-item"
                                                    href="{{route('categorycontents', ['id'=>$rs->id, 'slug'=>$rs->slug])}}">{{$rs->title}}</a>
                                             @endforeach
                                         </ul>
