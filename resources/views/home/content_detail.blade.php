@@ -78,6 +78,7 @@
                     </div>
                 </div>
             </div>
+            @auth()
             <div class="row">
                 <h1>Participant List</h1><br><br>
                 <table class="table table-striped table-bordered table-hover" id="example-table" cellspacing="0"
@@ -98,6 +99,7 @@
                     </tbody>
                 </table>
             </div>
+            @endauth
         </div>
     </div>
 @endsection

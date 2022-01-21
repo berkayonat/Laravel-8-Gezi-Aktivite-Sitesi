@@ -91,19 +91,17 @@ class HomeController extends Controller
 
     public function categorycontents($id,$slug)
     {
-        $datalist = Content::where('category_id',$id,)->where('status','=','True')->where('type','=','Activity')->latest()->get();
+        $datalist = Content::where('category_id',$id)->where('status','=','True')->where('type','=','Activity')->latest()->get();
         $data = Category::find($id);
-        $setting = Setting::first();
         #print_r($data);
         #exit();
-        return view('home.category_contents', ['datalist' => $datalist, 'data'=>$data, 'setting'=>$setting]);
+        return view('home.category_contents', ['datalist' => $datalist, 'data'=>$data]);
     }
     public function blog()
     {
         $datalist = Content::where('status','=','True')->where('type','=','Blog')->latest()->get();
-        $setting = Setting::first();
 
-        return view('home.blog', ['datalist' => $datalist,'setting'=>$setting]);
+        return view('home.blog', ['datalist' => $datalist]);
     }
 
     public function faq()

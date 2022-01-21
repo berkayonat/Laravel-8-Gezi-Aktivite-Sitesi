@@ -49,7 +49,7 @@
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             @foreach($parentCategories as $rs)
                                                <a class="dropdown-item"
-                                                   href="{{route('categorycontents', ['id'=>$rs->id, 'slug'=>$rs->slug])}}">{{$rs->title}}</a>
+                                                  href="{{route('categorycontents', ['id'=>$rs->id, 'slug'=>$rs->slug])}}">{{$rs->title}}</a>
                                             @endforeach
                                         </ul>
                                     </li>

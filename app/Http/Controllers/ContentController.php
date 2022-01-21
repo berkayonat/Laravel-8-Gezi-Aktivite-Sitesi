@@ -103,7 +103,6 @@ class ContentController extends Controller
         $data->description = $request->input('description');
         $data->slug = $request->input('slug');
         $data->category_id = $request->input('category_id');
-        $data->user_id = Auth::id();
         $data->type = $request->input('type');
         $data->city = $request->input('city');
         $data->country = $request->input('country');
